@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="CoffeeCup HTML Editor (www.coffeecup.com)">
+    <meta name="dcterms.created" content="Fri, 23 Sep 2016 06:09:55 GMT">
+    <meta name="description" content="A Simple Javascript Coin Counter">
+    <meta name="keywords" content="Javascript, Coin Counter, Simple Coin Counter, Javascript Coin Counter">
+    <title>Coin Counter</title>
+    
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	
+    <style type="text/css">
+    body {
+	  font-family: 'Montserrat', sans-serif;
+	  font-size: large;
+      color:#000000;
+      background-color:#FFFFFF;
+      background-image:url('Background Image');
+      background-repeat:no-repeat;
+      }
+	table, th, td {
+  	  border: 1px solid #4b4b4b;
+	  border-collapse: collapse;
+	  text-align:center;
+	  width:400px;
+	  padding:15px 15px 15px 15px;
+	  }
+	input.field {
+	  font-size:large; 
+	  text-align:center;
+	  }
+	input.button { 
+	  font-size:smaller; 
+	  font-family: 'Montserrat', sans-serif; 
+	  margin-top:15px;
+	  }
+    a  { color:#0000FF; }
+    a:visited { color:#800080; }
+    a:hover { color:#008000; }
+    a:active { color:#FF0000; }
+    </style>
+    
+	<script language="JavaScript">
+    <!-- Begin
+    function CoinCounter (form) {
+	
+	<!-- Removing leading zeroes
+		 var NoZero = parseInt((form.TotalMoney.value),10);
+
+	<!-- Adding multiplier if either pound sign or decimal point is present
+		 var x = document.getElementById("Input").value;
+		 var n = x.indexOf("\.");
+		 
+		 if ((n != -1) || (x.charAt(0) == '£')) {form.Multiplier.value = 100;}
+		 else {form.Multiplier.value = 1;}
+		 
+	<!-- ADD IF REQUIRED: Additional error check if pound sign is in the middle of input string
+		 <!-- var pound_sign = x.indexOf("£");
+		 <!-- if ((pound_sign != 0) && (pound_sign != -1)) {form.Multiplier.value = 0;}
+		  
+	<!-- Removing special characters and rounding off
+		 var TotalCentsParsed = (form.TotalMoney.value).replace(/[p£]/gi,'');
+		 var TotalBeforeMult = Math.round((TotalCentsParsed)*100)/100;
+	
+		 AfterMult = (TotalBeforeMult)*(form.Multiplier.value);
+		 form.TotalCents.value = AfterMult.toFixed(2);
+	
+	<!-- Converting isNaN to zero
+		 if (isNaN(form.TotalCents.value)) {form.TotalCents.value = 0;}
+	
+	<!-- Division by denomination
+		 var div200 = Math.floor((form.TotalCents.value)/200);
+		 var rem200 = form.TotalCents.value % 200;
+		 var div100 = Math.floor((rem200)/100);
+		 var rem100 = rem200 % 100;
+		 var div50 = Math.floor((rem100)/50);
+		 var rem50 = rem100 % 50;
+		 var div20 = Math.floor((rem50)/20);
+		 var rem20 = rem50 % 20;
+		 var div10 = Math.floor((rem20)/10);
+		 var rem10 = rem20 % 10;
+		 var div5 = Math.floor((rem10)/5);
+		 var rem5 = rem10 % 5;
+		 var div2 = Math.floor((rem5)/2);
+		 var rem2 = rem5 % 2;
+		 var div1 = Math.floor((rem2)/1);
+		 var rem1 = rem2 % 1;
+	
+		 form.Two_Pound.value = div200;
+		 form.One_Pound.value = div100;
+		 form.Fifty_Pence.value = div50;
+		 form.Twenty_Pence.value = div20;
+		 form.Ten_Pence.value = div10;
+		 form.Five_Pence.value = div5;
+		 form.Two_Pence.value = div2;
+		 form.One_Pence.value = div1;
+    }
+    // End -->
+    </script>
+  </head>
+  
+  <body>
+  	<center>
+    	<form onsubmit="return false">
+			<table>
+				<tr>
+        			<td colspan="2" style="background-color:#4b4b4b; color:#ffffff"><b>ENTER TOTAL AMOUNT</b></td>
+				</tr>
+  				<tr>
+                	<td colspan="2">
+									<input class="field" type="text" name="TotalMoney" id="Input" size=15><br>
+									<input class="button" type="submit" value="CALCULATE" onclick="CoinCounter(this.form)"><br>
+									<!-- Total Cents and Multiplier shown only for testing -->
+									<p style="display:none">
+                					Total Cents:
+                					<input type="text" name="TotalCents" size=15 ><br><br>
+                					Multiplier:
+                					<input type="text" name="Multiplier" size=15 >
+    				</td>
+				</tr>
+				<tr>
+					<td colspan="2" style="background-color:#87ba3d; color:#ffffff"><b>NUMBER OF COINS PER DENOMINATION</b></td>
+				</tr>
+				<tr>
+					<td colspan="1" style="text-align:right">&pound;2</td>
+					<td colspan="1"><input class="field" type="text" name="Two_Pound" size=15 readonly="flag"></td>
+				</tr>
+				<tr>
+					<td colspan="1" style="text-align:right">&pound;1</td>
+					<td colspan="1"><input class="field" type="text" name="One_Pound" size=15 readonly="flag"></td>
+				</tr>
+				<tr>
+					<td colspan="1" style="text-align:right">50p</td>
+					<td colspan="1"><input class="field" type="text" name="Fifty_Pence" size=15 readonly="flag"></td>
+				</tr>
+				<tr>
+					<td colspan="1" style="text-align:right">20p</td>
+					<td colspan="1"><input class="field" type="text" name="Twenty_Pence" size=15 readonly="flag"></td>
+				</tr>
+				<tr>
+					<td colspan="1" style="text-align:right">10p</td>
+					<td colspan="1"><input class="field" type="text" name="Ten_Pence" size=15 readonly="flag"></td>
+				</tr>
+				<tr>
+					<td colspan="1" style="text-align:right">5p</td>
+					<td colspan="1"><input class="field" type="text" name="Five_Pence" size=15 readonly="flag"></td>
+				</tr>
+				<tr>
+					<td colspan="1" style="text-align:right">2p</td>
+					<td colspan="1"><input class="field" type="text" name="Two_Pence" size=15 readonly="flag"></td>
+				</tr>
+				<tr>
+					<td colspan="1" style="text-align:right">1p</td>
+					<td colspan="1"><input class="field" type="text" name="One_Pence" size=15 readonly="flag"></td>
+				</tr>
+				</table>
+			</form>
+        </center>
+  </body>
+
+</html>
